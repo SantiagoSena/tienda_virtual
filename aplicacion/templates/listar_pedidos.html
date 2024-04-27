@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Pedidos</title>
+</head>
+<body>
+    <h1>Listado de Pedidos</h1>
+    <a href="{% url 'lista_productos' %}">Ir a los productos</a>
+{% for pedido in pedidos %}
+    <p>Pedido {{ pedido.idpedido }} - Estado: {{ pedido.estado }} - Valor Total: {{ pedido.valor_total }}</p>
+    <a href="{% url 'detalle_pedido' pedido.idpedido %}">Detalle</a>
+{% endfor %}
+
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+</body>
+</html>
+

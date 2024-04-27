@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    <title>Detalle del Producto</title>
+</head>
+<body>
+    <h1>Detalle del Producto</h1>
+    <h2>{{ producto.nombreprod }}</h2>
+    <p>Cantidad: {{ producto.cantidad }}</p>
+    <p>Valor: {{ producto.valor }}</p>
+    <img src="{{ producto.imagen.url }}" alt="{{ producto.nombreprod }}">
+    <a href="{% url 'lista_productos' %}">Volver a la lista de productos</a>
+</body>
+</html>
